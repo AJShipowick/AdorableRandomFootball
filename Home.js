@@ -3,6 +3,8 @@
 
 
 
+
+
 (function () {
 
 //document.getElementById("header").innerHTML;
@@ -19,7 +21,7 @@ function getRandomPlayer(playersName){
    return "https://api.adorable.io/avatars/150/" + playersName +".png";
 }
 
-document.getElementById('Player1').src=getRandomPlayer(Math.random());
+//document.getElementById('Player1').src=getRandomPlayer(Math.random());
 document.getElementById('Player4').src=getRandomPlayer(Math.random());
 document.getElementById('Player7').src=getRandomPlayer(Math.random());
 document.getElementById('Player8').src=getRandomPlayer(Math.random());
