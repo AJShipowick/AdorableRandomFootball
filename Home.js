@@ -1,42 +1,27 @@
 //TODO
 //Add Cartoon touchdown animation
 
+angular.module('adorableFootballApp', ['teamBuilderService'])
+  .controller('footballController', function AdorableFootballController($scope, teamService) {
 
+    $scope.startGame = false;
+    $scope.gameStartedStepOne = false;
+    $scope.gameStartedStepTwo = false;
+    $scope.myTeamBuilt = false;
+    $scope.oppositionTeamBuild = false;
 
+    $scope.buildMyTeam = function () {
+      $scope.playersTeam = teamService.buildTeam("myTeam");
+      $scope.gameStartedStepOne = false
+      $scope.myTeamBuilt = true;
+    }
 
+    $scope.buildTheirTeam = function () {
+      $scope.oppositionTeam = teamService.buildTeam("oppositionTeam");
+      $scope.gameStartedStepTwo = false;
+      $scope.oppositionTeamBuild = true;
+    }
 
-(function () {
+    $scope.opponentTeam = [];
 
-//document.getElementById("header").innerHTML;
-
-//$("#Team1").hide();
-//$("#Team2").hide();
-//$(".gameInfo").hide();
-
-
-
-//alert(Math.random());
-
-function getRandomPlayer(playersName){
-   return "https://api.adorable.io/avatars/150/" + playersName +".png";
-}
-
-//document.getElementById('Player1').src=getRandomPlayer(Math.random());
-document.getElementById('Player4').src=getRandomPlayer(Math.random());
-document.getElementById('Player7').src=getRandomPlayer(Math.random());
-document.getElementById('Player8').src=getRandomPlayer(Math.random());
-
-
-
-$.ajax({
-  url: 'https://randomuser.me/api/',
-  dataType: 'json',
-  success: function(data) {
-    console.log(data.results[0].name.first);
-    console.log(data.results[0].name.last);
-  }
-});
-
-
-
-})();
+  });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="adorableFootballApp">
 
 <head>
     <meta charset="UTF-8">
@@ -7,117 +7,35 @@
     <title>Adorable Football</title>
 </head>
 
-<body>
+<body ng-controller="footballController">
 
     <div class="jumbotron text-center">
-        <h2 id="jumboHeader">Adorable Random Football</h2>
+        <h1 id="jumboHeader">Adorable Random Football</h1>
     </div>
+
     <button type="button" class="btn btn-info gameInfo">How to Play</button>
     <button type="button" class="btn btn-info gameInfo">API's used</button>
-
+    <h2 id="teamBattle" class="text-center"></h2>
 
     <br><br>
-    <div class="container-fluid bg-3 text-center">
-        <button type="button" class="btn btn-lg btn-primary">Create Team 1</button>
-        <button type="button" class="btn btn-lg btn-primary">Create Team 2</button>
+    <div class="container-fluid bg-3 text-center" ng-show="!startGame">
+        <button type="button" ng-click="gameStartedStepOne = true; startGame = true" class="btn btn-lg btn-primary">Start Game!</button>
     </div>
 
+    <div class="container-fluid bg-3 text-center" ng-cloak>
+        <button type="button" ng-show="gameStartedStepOne" ng-click="buildMyTeam(); gameStartedStepTwo = true" class="btn btn-lg btn-primary">Create your team</button>
+        <button type="button" ng-show="gameStartedStepTwo" ng-click="buildTheirTeam()" class="btn btn-lg btn-primary">Create opponent's team</button>
+    </div><br><br>
 
-    <div class="container-fluid bg-3 text-center">
-        <div class="row">
-            <div class="col-sm-3">
-            </div>
-            <div class="col-sm-2">
-            </div>
-            <div class="col-sm-2">
-                <div class="span4"><img id="FieldGoal" src="FieldGoal.png" class="center-bloc" style="width:200px" alt="Field Goal" /></div>
-            </div>
-            <div class="col-sm-2">
-            </div>
-            <div class="col-sm-3">
-            </div>
-        </div>
-    </div>
-
-    </div>
-
-    <div id="Team1">
-        <br><br><br><br>
-        <div class="container-fluid bg-3 text-center">
-            <div class="row">
-                <div class="col-sm-2">
-                    <p>Some text..</p>
-                    <img id="Player5" class="img-responsive" style="width:100px" alt="Player5">
-                </div>
-
-                <div class="col-sm-2">
-                    <!--<p>Some text..</p>
-                    <img id="Player6" class="img-responsive" style="width:100%" alt="Player6">-->
-                </div>
-
-                <div class="col-sm-2">
-                    <p>Some text..</p>
-                    <img id="Player6" class="img-responsive" style="width:100px" alt="Player6">
-                </div>
-                <div class="col-sm-2">
-                    <p>Some text..</p>
-                    <img id="Player7" class="img-responsive" style="width:100px" alt="Player7">
-                </div>
-
-                <div class="col-sm-2">
-                    <!--<p>Some text..</p>
-                    <img id="Player6" class="img-responsive" style="width:100%" alt="Player6">-->
-                </div>
-
-                <div class="col-sm-2">
-                    <p>Some text..</p>
-                    <img id="Player8" class="img-responsive" style="width:100px" alt="Player8">
-                </div>
-            </div>
-        </div><br><br>
-    </div>
-
-    <div id="Team2">
-        <br><br><br><br>
-        <div class="container-fluid bg-3 text-center">
-            <div class="row">
-                <div class="col-sm-2">
-                    <!--<p id="Player1Name"></p>
-                    <img id="Player1" class="img-responsive" style="width:100%" alt="Player1">-->
-                </div>
-                <div class="col-sm-2">
-                    <p id="Player1Name"></p>
-                    <img id="Player2" class="img-responsive" style="width:100px" alt="Player2">
-                </div>
-                <div class="col-sm-2">
-                    <p id="Player1Name"></p>
-                    <img id="Player3" class="img-responsive" style="width:100px" alt="Player3">
-                </div>
-                <div class="col-sm-2">
-                    <p id="Player1Name"></p>
-                    <img id="Player4" class="img-responsive" style="width:100px" alt="Player4">
-                </div>
-                <div class="col-sm-2">
-                    <p id="Player1Name"></p>
-                    <img id="Player4" class="img-responsive" style="width:100px" alt="Player4">
-                </div>
-                <div class="col-sm-2">
-                    <!--<p id="Player1Name"></p>
-                    <img id="Player4" class="img-responsive" style="width:100%" alt="Player4">-->
-                </div>
-            </div>
-        </div><br><br>
-    </div>
-
-    <div id="Quarterback">
-        <div class="container-fluid bg-3 text-center">
+    <div style="background: url(Field.png), center">
+        <div class="container-fluid bg-3 text-center" ng-cloak ng-show="startGame">
             <div class="row">
                 <div class="col-sm-3">
                 </div>
                 <div class="col-sm-2">
                 </div>
                 <div class="col-sm-2">
-                    <img id="Quarterback" class="img-responsive" style="width:150px" alt="Quarterback">
+                    <div class="span4"><img id="FieldGoal" src="Fieldgoal.png" style="width:200px" alt="Field Goal" /></div>
                 </div>
                 <div class="col-sm-2">
                 </div>
@@ -125,17 +43,85 @@
                 </div>
             </div>
         </div>
+
+        <div id="OppositionTeam" ng-cloak ng-show="oppositionTeamBuild">
+            <br><br><br><br>
+            <div class="container-fluid bg-3 text-center">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <img id="Player5" style="width:100px" alt="Player5">
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-2">
+                        <img id="Player6" style="width:100px" alt="Player6">
+                    </div>
+                    <div class="col-sm-2">
+                        <img id="Player7" style="width:100px" alt="Player7">
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-2">
+                        <img id="Player8" style="width:100px" alt="Player8">
+                    </div>
+                </div>
+            </div><br><br>
+        </div>
+
+        <div id="MyTeam" ng-cloak ng-show="myTeamBuilt">
+            <br><br><br><br>
+            <div class="container-fluid bg-3 text-center">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-2">
+                        <img id="Player1" style="width:100px" alt="Player1">
+                    </div>
+                    <div class="col-sm-2">
+                        <img id="Player2" style="width:100px" alt="Player2">
+                    </div>
+                    <div class="col-sm-2">
+                        <img id="Player3" style="width:100px" alt="Player3">
+                    </div>
+                    <div class="col-sm-2">
+                        <img id="Player4" style="width:100px" alt="Player4">
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+            </div><br><br>
+
+
+            <div>
+                <div class="container-fluid bg-3 text-center">
+                    <div class="row">
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="span4"><img src="Football.png" style="width:100px" alt="Football" /></div>
+                            <img id="Quarterback" style="width:150px" alt="Quarterback">
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                </div>
+            </div><br><br><br>
+        </div>
     </div>
-
-
-
 </body>
 
 
 <footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Bootstrap examples https://getbootstrap.com/examples/theme/# -->
     <script src="Home.js"></script>
+    <script src="TeamBuilderService.js"></script>
 </footer>
 
 </html>
