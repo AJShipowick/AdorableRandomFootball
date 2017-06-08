@@ -1,3 +1,12 @@
+/* Hudl Design: http://design.hudl.com/brand/ */
+
+/*Overriding Bootstraps jumbotron*/
+.jumbotron{
+    text-align:center;
+    color: white;
+    background-color: #ff6500;
+}
+
 .player-picture{
     border: 2px solid;
     border-radius: 20px;
@@ -8,4 +17,20 @@
     border: 2px solid;
     border-radius: 20px;
     width: 150px;
+}
+
+.hudl-button{
+    color: white;
+    background-color: #009ce3;
+}
+
+.score-board{
+    border-color: #009ce3;
+}
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #009ce3;
+    color: white;
+
 }

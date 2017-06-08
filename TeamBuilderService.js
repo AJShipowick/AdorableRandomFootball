@@ -18,16 +18,16 @@ angular.module('teamBuilderService', [])
 
         this.buildTeamPictures = function (team) {
             if (buildingMyTeam) {
-                $("#Player1").attr("src", this.getRandomPlayer(Math.random()));
-                $('#Player2').attr("src", this.getRandomPlayer(Math.random()));
-                $('#Player3').attr("src", this.getRandomPlayer(Math.random()));
-                $('#Player4').attr("src", this.getRandomPlayer(Math.random()));
-                $('#Quarterback').attr("src", this.getRandomPlayer(Math.random()));
+                $("#player1").attr("src", this.getRandomPlayer(Math.random()));
+                $('#player2').attr("src", this.getRandomPlayer(Math.random()));
+                $('#player3').attr("src", this.getRandomPlayer(Math.random()));
+                $('#player4').attr("src", this.getRandomPlayer(Math.random()));
+                $('#quarterback').attr("src", this.getRandomPlayer(Math.random()));
             } else {
-                $("#Player5").attr("src", this.getRandomPlayer(Math.random()));
-                $('#Player6').attr("src", this.getRandomPlayer(Math.random()));
-                $('#Player7').attr("src", this.getRandomPlayer(Math.random()));
-                $('#Player8').attr("src", this.getRandomPlayer(Math.random()));
+                $("#player5").attr("src", this.getRandomPlayer(Math.random()));
+                $('#player6').attr("src", this.getRandomPlayer(Math.random()));
+                $('#player7').attr("src", this.getRandomPlayer(Math.random()));
+                $('#player8').attr("src", this.getRandomPlayer(Math.random()));
             }
         }
 
