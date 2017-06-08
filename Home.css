@@ -1,0 +1,11 @@
+.player-picture{
+    border: 2px solid;
+    border-radius: 20px;
+    width: 100px;
+}
+
+.quarterback{
+    border: 2px solid;
+    border-radius: 20px;
+    width: 150px;
+}

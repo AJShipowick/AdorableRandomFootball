@@ -31,10 +31,6 @@ angular.module('teamBuilderService', [])
             }
         }
 
-        this.buildOppositionTeam = function () {
-
-        }
-
         this.getRandomName = function () {
             $.ajax({
                 url: 'https://randomuser.me/api/',
