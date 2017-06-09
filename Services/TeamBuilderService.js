@@ -1,12 +1,11 @@
-//Service to help build teams (names and pictures)
+//Service to help build random teams (names and pictures)
 angular.module('teamBuilderService', [])
     .service('teamService', function () {
 
         var buildingMyTeam = false;
 
         //Handles build team method for player and opposition teams
-        this.buildTeam = function (team, teamName) {
-            teamNameToAssign = teamName;
+        this.buildTeam = function (team) {            
             this.buildTeamName(team);
             this.buildTeamPictures(team);
         }
@@ -31,6 +30,7 @@ angular.module('teamBuilderService', [])
             }
         }
 
+        //Returns random player name and city from API
         this.getRandomName = function () {
             $.ajax({
                 url: 'https://randomuser.me/api/',
@@ -45,6 +45,7 @@ angular.module('teamBuilderService', [])
             });
         }
 
+        //Returns a unique picture from API
         this.getRandomPlayer = function (name) {
             return "https://api.adorable.io/avatars/" + name + ".png";
         }

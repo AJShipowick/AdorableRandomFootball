@@ -1,3 +1,5 @@
+//Entry point module for app
+
 angular.module('adorableFootballApp', ['teamBuilderService', 'gameBuilderService'])
   .controller('footballController', function AdorableFootballController($scope, teamService, gameService) {
 
@@ -37,9 +39,8 @@ angular.module('adorableFootballApp', ['teamBuilderService', 'gameBuilderService
       $scope.oppositionTeamBuilt = true;
     }
 
+    //Start the game and show game results
     $scope.playGame = function () {
-      //show game results
-
       $("#playGame").modal()
       gameService.resetScores();
 

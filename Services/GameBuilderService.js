@@ -10,15 +10,15 @@ angular.module('gameBuilderService', [])
             opponentTeamScore = 0;
         }
 
-        //logic to randomize game events
+        //Logic to randomize game events
         //1 team takes a turn
-        //did they score, or was an error commited?
-        //return quarter results
+        //Did they score, or was an error commited?
+        //Returns quarter results
         this.createQuarter = function () {
             var myTeamTakesAction = this.getRandomActiom();
             var goodAction = this.getRandomActiom();
 
-            results = {};  //Empty object
+            results = {}; 
             results.action = this.getActionResults(goodAction, myTeamTakesAction);
 
             if (myTeamTakesAction) {
@@ -34,7 +34,7 @@ angular.module('gameBuilderService', [])
         }
 
         //Number can only be 1 or 2
-        //Randomlly choose if home team takes action or not
+        //Randomlly choose the outcome of an action
         this.getRandomActiom = function () {
             var randomNumber = Math.floor(Math.random() * 2) + 1;
             return (randomNumber === 1);
@@ -55,12 +55,12 @@ angular.module('gameBuilderService', [])
         this.getUpdatedScore = function (goodAction, actiom) {
             if (goodAction) {
                 if (actiom.includes("Touchdown!")) {
-                    return 7;
+                    return 7;  //Assuming PAT was good
                 } else {
                     return 3;
                 }
             } else {
-                return 0;
+                return 0;  //No team scores any points when a bad action happens in a querter
             }
         }
 
