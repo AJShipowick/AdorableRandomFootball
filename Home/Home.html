@@ -45,104 +45,105 @@
             <div class="col-sm-2">
             </div>
             <div class="col-sm-2">
-               <div class="panel panel-primary">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Away</h3>
                     </div>
                     <div id="myTeamScore" class="panel-body">
                         0
                     </div>
-            </div>
-            <div class="col-sm-3">
-            </div>
-        </div>
-    </div>
-
-    <div style="background: url(Field.png), center">
-        <div class="container-fluid bg-3 text-center" ng-cloak ng-show="startGame">
-            <div class="row">
-                <div class="col-sm-3">
-                </div>
-                <div class="col-sm-2">
-                </div>
-                <div class="col-sm-2">
-                    <div class="span4"><img id="FieldGoal" src="Fieldgoal.png" style="width:200px" alt="Field Goal" /></div>
-                </div>
-                <div class="col-sm-2">
                 </div>
                 <div class="col-sm-3">
                 </div>
             </div>
         </div>
 
-        <div ng-cloak ng-show="oppositionTeamBuild">
-            <br><br><br><br>
-            <div class="container-fluid bg-3 text-center">
+        <div style="background: url(../Assets/Field.png), center">
+            <div class="container-fluid bg-3 text-center" ng-cloak ng-show="startGame">
+                <br><br>
                 <div class="row">
-                    <div class="col-sm-2">
-                        <img id="player5" class="player-picture" alt="Player5">
+                    <div class="col-sm-3">
                     </div>
                     <div class="col-sm-2">
                     </div>
                     <div class="col-sm-2">
-                        <img id="player6" class="player-picture" alt="Player6">
-                    </div>
-                    <div class="col-sm-2">
-                        <img id="player7" class="player-picture" alt="Player7">
+                        <div class="span4"><img id="FieldGoal" src="../Assets/Fieldgoal.png" style="width:200px" alt="Field Goal" /></div>
                     </div>
                     <div class="col-sm-2">
                     </div>
-                    <div class="col-sm-2">
-                        <img id="player8" class="player-picture" alt="Player8">
+                    <div class="col-sm-3">
                     </div>
                 </div>
-            </div><br><br>
-        </div>
+            </div>
 
-        <div ng-cloak ng-show="myTeamBuilt">
-            <br><br><br><br>
-            <div class="container-fluid bg-3 text-center">
-                <div class="row">
-                    <div class="col-sm-2">
-                    </div>
-                    <div class="col-sm-2">
-                        <img id="player1" class="player-picture" alt="Player1">
-                    </div>
-                    <div class="col-sm-2">
-                        <img id="player2" class="player-picture" alt="Player2">
-                    </div>
-                    <div class="col-sm-2">
-                        <img id="player3" class="player-picture" alt="Player3">
-                    </div>
-                    <div class="col-sm-2">
-                        <img id="player4" class="player-picture" alt="Player4">
-                    </div>
-                    <div class="col-sm-2">
-                    </div>
-                </div>
-            </div><br><br>
-
-
-            <div>
+            <div ng-cloak ng-show="oppositionTeamBuild">
+                <br><br><br><br>
                 <div class="container-fluid bg-3 text-center">
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
+                            <img id="player5" class="player-picture" alt="Player5">
                         </div>
                         <div class="col-sm-2">
                         </div>
                         <div class="col-sm-2">
-                            <div class="span4"><img src="Football.png" style="width:100px" alt="Football" /></div>
-                            <img id="quarterback" class="quarterback" alt="Quarterback">
+                            <img id="player6" class="player-picture" alt="Player6">
+                        </div>
+                        <div class="col-sm-2">
+                            <img id="player7" class="player-picture" alt="Player7">
                         </div>
                         <div class="col-sm-2">
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
+                            <img id="player8" class="player-picture" alt="Player8">
                         </div>
                     </div>
-                </div>
-            </div><br><br><br>
+                </div><br><br>
+            </div>
+
+            <div ng-cloak ng-show="myTeamBuilt">
+                <br><br><br><br>
+                <div class="container-fluid bg-3 text-center">
+                    <div class="row">
+                        <div class="col-sm-2">
+                        </div>
+                        <div class="col-sm-2">
+                            <img id="player1" class="player-picture" alt="Player1">
+                        </div>
+                        <div class="col-sm-2">
+                            <img id="player2" class="player-picture" alt="Player2">
+                        </div>
+                        <div class="col-sm-2">
+                            <img id="player3" class="player-picture" alt="Player3">
+                        </div>
+                        <div class="col-sm-2">
+                            <img id="player4" class="player-picture" alt="Player4">
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                    </div>
+                </div><br><br>
+
+
+                <div>
+                    <div class="container-fluid bg-3 text-center">
+                        <div class="row">
+                            <div class="col-sm-3">
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="span4"><img src="../Assets/Football.png" style="width:100px" alt="Football" /></div>
+                                <img id="quarterback" class="quarterback" alt="Quarterback">
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                            <div class="col-sm-3">
+                            </div>
+                        </div>
+                    </div>
+                </div><br><br><br>
+            </div>
         </div>
-    </div>
 </body>
 
 
@@ -152,7 +153,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Bootstrap examples https://getbootstrap.com/examples/theme/# -->
     <script src="Home.js"></script>
-    <script src="TeamBuilderService.js"></script>
+    <script src="../Services/TeamBuilderService.js"></script>
 </footer>
 
 </html>

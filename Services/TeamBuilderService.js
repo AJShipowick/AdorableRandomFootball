@@ -46,6 +46,6 @@ angular.module('teamBuilderService', [])
         }
 
         this.getRandomPlayer = function (name) {
-            return "https://api.adorable.io/avatars/150/" + name + ".png";
+            return "https://api.adorable.io/avatars/" + name + ".png";
         }
     });
