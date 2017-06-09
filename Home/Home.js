@@ -1,14 +1,20 @@
-//TODO
-//Add Cartoon touchdown animation
+//TODO Add Cartoon touchdown animation
 
-angular.module('adorableFootballApp', ['teamBuilderService'])
-  .controller('footballController', function AdorableFootballController($scope, teamService) {
+angular.module('adorableFootballApp', ['teamBuilderService', 'gameBuilderService'])
+  .controller('footballController', function AdorableFootballController($scope, teamService, gameService) {
 
-    $scope.startGame = false;
-    $scope.gameStartedStepOne = false;
-    $scope.gameStartedStepTwo = false;
-    $scope.myTeamBuilt = false;
-    $scope.oppositionTeamBuild = false;
+    //Set variables on app load
+    $(document).ready(function () {
+      buildGameVariables();
+    });
+
+    function buildGameVariables() {
+      $scope.startGame = false;
+      $scope.gameStartedStepOne = false;
+      $scope.gameStartedStepTwo = false;
+      $scope.myTeamBuilt = false;
+      $scope.oppositionTeamBuilt = false;
+    }
 
     $scope.buildMyTeam = function () {
       $scope.playersTeam = teamService.buildTeam("myTeam");
@@ -19,9 +25,28 @@ angular.module('adorableFootballApp', ['teamBuilderService'])
     $scope.buildTheirTeam = function () {
       $scope.oppositionTeam = teamService.buildTeam("oppositionTeam");
       $scope.gameStartedStepTwo = false;
-      $scope.oppositionTeamBuild = true;
+      $scope.oppositionTeamBuilt = true;
     }
 
-    $scope.opponentTeam = [];
+    $scope.playGame = function () {
+      $("#playGame").modal()
+    }
+
+    $scope.showGameResults = function(){
+      alert('gameDone!');
+    }
+
+    $scope.restartGame = function () {
+      buildGameVariables();
+      $("#teamBattle").text("");
+    }
+
+    $scope.howToPlay = function () {
+      $("#howToPlay").modal()
+    }
+
+    $scope.appStack = function () {
+      $("#appStack").modal()
+    }
 
   });
