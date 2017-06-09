@@ -1,12 +1,12 @@
 //Service to help build teams (names and pictures)
-
 angular.module('teamBuilderService', [])
     .service('teamService', function () {
 
         var buildingMyTeam = false;
 
         //Handles build team method for player and opposition teams
-        this.buildTeam = function (team) {
+        this.buildTeam = function (team, teamName) {
+            teamNameToAssign = teamName;
             this.buildTeamName(team);
             this.buildTeamPictures(team);
         }

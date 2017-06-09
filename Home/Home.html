@@ -17,7 +17,7 @@
     <button type="button" class="btn hudl-button" ng-click="howToPlay()">How to Play</button>
     <button type="button" class="btn hudl-button" ng-click="appStack()">App stack and APIs used</button>
     <br><br>
-    <button type="button" class="btn hudl-button2" ng-click="restartGame()">Restart Game</button>
+    <button ng-cloak type="button" class="btn hudl-button2" ng-click="restartGame()">Restart Game</button> Total Wins: {{totalWins}} | Total Losses: {{totalLosses}}
     <h2 id="teamBattle" class="text-center"></h2>
 
     <!--<br><br>-->
@@ -40,12 +40,18 @@
                         <h3 class="panel-title">Home</h3>
                     </div>
                     <div id="myTeamScore" class="panel-body">
-                        0
+                        <p>{{myTeamScore}}</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-2">
-                <button class="btn btn-lg hudl-button2" ng-click="playGame()">PLAY</button>
+                <button class="btn btn-lg hudl-button2" ng-click="playGame()" ng-show="!gameOver">PLAY</button>
+                <div ng-show="gameOver">
+                    <h2>FINAL</h2>
+                    <div ng-show="weWon"><img id="gameResults" src="../Assets/Winning.gif" style="width:200px" alt="Game results" /></div>
+                    <div ng-show="!weWon"><img id="gameResults" src="../Assets/Defeat.gif" style="width:200px" alt="Game results" /></div>
+                    <br>
+                </div>
             </div>
             <div class="col-sm-2">
                 <div class="panel panel-primary">
@@ -53,7 +59,7 @@
                         <h3 class="panel-title">Away</h3>
                     </div>
                     <div id="myTeamScore" class="panel-body">
-                        0
+                        <p>{{opponentTeamScore}}</p>
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -148,30 +154,38 @@
             </div>
         </div>
 
-<!-- Play game modal -->
-<div class="modal fade" id="playGame" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">Game Time!</h2>
-            </div>
-            <div class="modal-body">
-                <h2>Quarter 1</h2>
+        <!-- Play game modal -->
+        <div class="modal fade" id="playGame" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title" id="exampleModalLabel">Game Time!</h1>
+                    </div>
+                    <div class="modal-body">
+                        <h2>Quarter 1</h2>
+                        <p>{{quarter1Results.action}}</p>
+                        <p>{{quarter1Results.score}}</p>
+                        <h2>Quarter 2</h2>
+                        <p>{{quarter2Results.action}}</p>
+                        <p>{{quarter2Results.score}}</p>
+                        <h2>Quarter 3</h2>
+                        <p>{{quarter3Results.action}}</p>
+                        <p>{{quarter3Results.score}}</p>
+                        <h2>Quarter 4</h2>
+                        <p>{{quarter4Results.action}}</p>
+                        <p>{{quarter4Results.score}}</p>
 
-                <h2>Quarter 2</h2>
-
-                <h2>Quarter 3</h2>
-
-                <h2>Quarter 4</h2>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="showGameResults()">Close</button>
+                        <div ng-show="gameOver">
+                            <h2>Game Over</h2>
+                            <p>{{finalResults}}</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="showGameResults()">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 </body>
 
 
@@ -207,8 +221,7 @@
                 <p>AngularJS</p>
                 <p>Bootstrap</p>
                 <h3>Open source APIs</h3>
-                Adorable Icons <a href="http://avatars.adorable.io/"> HERE</a><br>
-                Random team names <a href="https://randomuser.me/"> HERE</a>
+                Adorable Icons <a href="http://avatars.adorable.io/"> HERE</a><br> Random team names <a href="https://randomuser.me/"> HERE</a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -226,4 +239,5 @@
     <script src="../Services/TeamBuilderService.js"></script>
     <script src="../Services/GameBuilderService.js"></script>
 </footer>
+
 </html>
