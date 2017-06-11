@@ -1,7 +1,7 @@
 # AdorableRandomFootball
 
 Using 2 different APIs to make this applicaiton work.
-1 for random pictures for the players, and another one for the random player names:
+1 for random pictures for the players, and another one for the random team names:
 
 Pics: http://avatars.adorable.io/
 
